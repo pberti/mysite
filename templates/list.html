@@ -1,0 +1,9 @@
+Visitor's list:
+
+<div class="container">
+  {% for guest in guests %}
+    <div class="row">
+      {{ guest.id }}. name: {{ guest.name }}; host: {{ guest.host }}; company: {{ guest.company }}
+    </div>
+  {% endfor %}
+</div>
