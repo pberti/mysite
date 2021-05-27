@@ -40,4 +40,9 @@ def wibble():
 
 @app.route("/shop", methods=["GET", "POST"])
 def shop():
-    return render_template("shop.html")
+        if request.method == "GET":
+            return render_template("shop.html", guests=Visit.query.all())
+        visit = Visit(name=request.form["contents"], host=request.form["host"],  company=request.form["company"])
+        db.session.add(visit)
+        db.session.commit()
+        return redirect(url_for('shop'))
