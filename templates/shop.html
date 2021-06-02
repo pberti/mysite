@@ -87,9 +87,11 @@
                     <!-- end produs 1 -->
 
 
-{% for guest in guests %}
-{{ guest.name }}
-{% endfor %}
+                    <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+                        ...
+                        <input type=file name=photo>
+                        ...
+                    </form>
 
 
                 </div>
