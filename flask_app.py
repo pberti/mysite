@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-photos = UploadSet('photos', IMAGES)
+#photos = UploadSet('photos', IMAGES)
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
