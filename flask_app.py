@@ -45,7 +45,7 @@ def wibble():
 def shop():
     return render_template("shop.html")
 
-
+'''
 # UPLOAD
 
 app.config['SECRET_KEY'] = 'thisisasecret'
@@ -64,4 +64,6 @@ def index():
     if form.validate_on_submit():
         filename = images.save(form.image.data)
         return f'Filename: { filename }'
-    return render_template('upload.html', form=form)
+    return render_template('upload .html', form=form)
+
+'''
