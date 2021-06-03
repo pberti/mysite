@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+'''
 from flask_wtf import FlaskForm
 from wtforms import FileField
 from flask_uploads import configure_uploads, IMAGES, UploadSet
-
+'''
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
