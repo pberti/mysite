@@ -67,8 +67,3 @@ def upload():
         return f'Filename: { filename }'
     return render_template('upload .html', form=form)
 '''
-
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-    form = Myform()
-    return render_template('upload.html', form=form )
