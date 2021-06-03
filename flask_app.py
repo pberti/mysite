@@ -55,16 +55,20 @@ app.config['UPLOADED_IMAGES_DEST'] = 'static/poze'
 
 images = UploadSet('images', IMAGES)
 configure_uploads(app, images)
-
+'''
 class MyForm(FlaskForm):
     image = FileField('image')
-
+'''
 @app.route('/upload', methods=['GET', 'POST'])
-def index():
+def upload():
     form = MyForm()
     if form.validate_on_submit():
         filename = images.save(form.image.data)
         return f'Filename: { filename }'
     return render_template('upload .html', form=form)
-
 '''
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    form = Myform()
+    return render_template('upload.html', form=form )
