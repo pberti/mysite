@@ -39,7 +39,7 @@ def index():
 def wibble():
     return render_template("list.html", guests=Visit.query.all())
 
-'''
+
 
 
 #SHOP
@@ -65,7 +65,7 @@ def upload_image():
             return redirect(request.url)
     return render_template("upload_image.html")
 
-
+'''
 #LOGIN
 
 from flask import session, g
