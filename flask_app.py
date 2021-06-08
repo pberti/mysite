@@ -65,7 +65,7 @@ def upload_image():
             return redirect(request.url)
     return render_template("upload_image.html")
 
-
+'''
 #LOGIN
 
 from flask import session, g
@@ -99,3 +99,4 @@ def before_request():
 def dropsession():
     session.pop('user', None)
     return render_template('login.html')
+'''
