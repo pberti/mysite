@@ -89,7 +89,7 @@ def protected():
     return redirect(url_for('login'))
 
 
-@app.before_request()
+@app.before_request
 def before_request():
     g.user = None
     if 'user' in session:
