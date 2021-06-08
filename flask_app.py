@@ -50,6 +50,7 @@ def shop():
 
 
 app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
+
 '''
 @app.route("/upload-image", methods=["GET", "POST"])
 def upload_image():
