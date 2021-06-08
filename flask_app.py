@@ -50,7 +50,7 @@ def shop():
 
 
 app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
-
+'''
 @app.route("/upload-image", methods=["GET", "POST"])
 def upload_image():
     if request.method == "POST":
@@ -59,7 +59,7 @@ def upload_image():
             image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
             return redirect(request.url)
     return render_template("upload_image.html")
-
+'''
 
 #LOGIN
 
@@ -85,7 +85,7 @@ def protected():
         if request.files:
             image = request.files["image"]
             image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
-            return redirect(url_for('login'))
+            return render_template('protected.html', user=session['user'])
     return redirect(url_for('login'))
 
 
