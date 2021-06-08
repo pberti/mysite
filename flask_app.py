@@ -53,15 +53,10 @@ app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
 
 @app.route("/upload-image", methods=["GET", "POST"])
 def upload_image():
-
     if request.method == "POST":
-
         if request.files:
-
             image = request.files["image"]
-
             image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
-
             return redirect(request.url)
     return render_template("upload_image.html")
 
@@ -82,10 +77,15 @@ def login():
             return redirect(url_for('protected'))
     return render_template('login.html')
 
-@app.route('/protected')
+@app.route('/protected', methods=["GET", "POST"])
 def protected():
     if g.user:
         return render_template('protected.html', user=session['user'])
+    if request.method == "POST":
+        if request.files:
+            image = request.files["image"]
+            image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
+            return redirect(request.url)
     return redirect(url_for('login'))
 
 
