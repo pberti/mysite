@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-
+'''
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="Albert73",
     password="812288qwe",
@@ -99,4 +99,3 @@ def before_request():
 def dropsession():
     session.pop('user', None)
     return render_template('login.html')
-'''
