@@ -81,7 +81,7 @@ def login():
             session['user'] = request.form['username']
             return redirect(url_for('protected'))
     return render_template('login.html')
-'''
+
 @app.route('/protected')
 def protected():
     if g.user:
@@ -94,7 +94,7 @@ def before_request():
 
     if 'user' in session:
         g.user = session['user']
-
+'''
 @app.route('/dropsession')
 def dropsession():
     session.pop('user', None)
