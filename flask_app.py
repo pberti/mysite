@@ -85,7 +85,7 @@ def protected():
         if request.files:
             image = request.files["image"]
             image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
-            return redirect(request.url)
+            return redirect(url_for('login'))
     return redirect(url_for('login'))
 
 
