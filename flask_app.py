@@ -39,11 +39,14 @@ def index():
 def wibble():
     return render_template("list.html", guests=Visit.query.all())
 
+
+
+
+#SHOP
+
 @app.route("/shop", methods=["GET", "POST"])
 def shop():
     return render_template("shop.html")
-
-
 
 
 app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
@@ -61,10 +64,38 @@ def upload_image():
 
             return redirect(request.url)
     return render_template("upload_image.html")
-'''
 
-@app.route("/upload-image", methods=["GET", "POST"])
-def upload_image():
-    return render_template("upload_image.html")
 
-'''
+#LOGIN
+
+from flask import session, g
+
+app.secret_key = os.urandom(24)
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method ==  'POST':
+        session.pop('user', None)
+
+        if request.form['password'] == 'password':
+            session['user'] = request.form['username']
+            return redirect(url_for('protected'))
+    return render_template('login.html')
+
+@app.route('/protected')
+def protected():
+    if g.user:
+        return render_template('protected.html', user=session['user'])
+    return redirect(url_for('login'))
+
+app.before_request()
+def before_request():
+    g.user = None
+
+    if 'user' in session:
+        g.user = session['user']
+
+@app.route('/dropsession')
+def dropsession():
+    session.pop('user', None)
+    return render_template('login.html')
