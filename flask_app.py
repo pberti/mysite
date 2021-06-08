@@ -65,7 +65,7 @@ def upload_image():
             return redirect(request.url)
     return render_template("upload_image.html")
 
-'''
+
 #LOGIN
 
 from flask import session, g
@@ -81,7 +81,7 @@ def login():
             session['user'] = request.form['username']
             return redirect(url_for('protected'))
     return render_template('login.html')
-
+'''
 @app.route('/protected')
 def protected():
     if g.user:
