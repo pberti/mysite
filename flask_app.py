@@ -88,7 +88,7 @@ def protected():
         return render_template('protected.html', user=session['user'])
     return redirect(url_for('login'))
 
-app.before_request()
+@app.before_request()
 def before_request():
     g.user = None
 
