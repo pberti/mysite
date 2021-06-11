@@ -1,28 +1,28 @@
-<h2> Welcome {{user}} to boss page</h2>
-
-
-<button onclick="window.location = 'http://albert73.pythonanywhere.com/dropsession'" type="submit">Logout</button>
-
-
-
 <div class="container">
   <div class="row">
     <div class="col">
 
-      <h1>Upload an image</h1>
+      <h1> Bine ai venit {{user}}!</h1>
+      <button onclick="window.location = 'http://albert73.pythonanywhere.com/dropsession'" type="submit" class="btn btn-info">Iesire</button>
       <hr>
 
       <form action="/protected" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label>Select image</label>
+          <label>Adaugare produs</label>
+          <p></p>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" name="image" id="image">
-            <label class="custom-file-label" for="image">Select image...</label>
+
+            <input type="file" class="custom-file-input" name="image" id="image"><br>
+            <input type="text" class="form-control" placeholder="Nume produs" id="nume produs"><br>
+            <input type="text" class="form-control" placeholder="Pret produs" id="pret produs"><br>
+            <input type="text" class="form-control" placeholder="Pret redus produs" id="redus produs"><br>
+
+
+            <button type="submit" class="btn btn-primary">Trimite</button>
+
           </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">Upload</button>
 
       </form>
 

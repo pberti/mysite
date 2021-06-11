@@ -1,5 +1,5 @@
-Visitor's list:
 
+<!--
 <div class="container">
   {% for guest in guests %}
     <div class="row">
@@ -7,3 +7,44 @@ Visitor's list:
     </div>
   {% endfor %}
 </div>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Visitor's list</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+</br>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Host</th>
+        <th>Company</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for guest in guests %}
+      <tr>
+        <td>{{ guest.id }}</td>
+        <td>{{ guest.name }}</td>
+        <td>{{ guest.host }}</td>
+        <td>{{ guest.company }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
