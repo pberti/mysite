@@ -51,22 +51,23 @@ def shop():
 
 app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
 
-'''
-@app.route("/upload-image", methods=["GET", "POST"])
-def upload_image():
-    if request.method == "POST":
-        if request.files:
-            image = request.files["image"]
-            image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
-            return redirect(request.url)
-    return render_template("upload_image.html")
-'''
 
 #LOGIN
+
+#__________
 
 from flask import session, g
 
 app.secret_key = os.urandom(24)
+
+class Produs(db.Model):
+    __tablename__ = "produse"
+    id = db.Column(db.Integer, primary_key=True)
+    nume = db.Column(db.String(4096))
+    pret = db.Column(db.String(4096))
+    redus = db.Column(db.String(4096))
+#__________
+
 
 @app.route('/login', methods=['GET','POST'])
 def login():
@@ -85,7 +86,10 @@ def protected():
             if request.files:
                 image = request.files["image"]
                 image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
-                return redirect(request.url)
+                produs = Produs(nume=request.form["nume"], pret=request.form["pret"], redus=request.form["redus"])
+                db.session.add(produs)
+                db.session.commit()
+                return redirect(url_for('protected'))
         return render_template('protected.html', user=session['user'])
     return redirect(url_for('login'))
 
