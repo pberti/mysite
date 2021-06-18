@@ -44,18 +44,6 @@ def wibble():
 
 #SHOP
 
-@app.route("/shop", methods=["GET", "POST"])
-def shop():
-    return render_template("shop.html")
-
-
-app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
-
-
-#LOGIN
-
-#__________
-
 from flask import session, g
 
 app.secret_key = os.urandom(24)
@@ -63,10 +51,24 @@ app.secret_key = os.urandom(24)
 class Produs(db.Model):
     __tablename__ = "produse"
     id = db.Column(db.Integer, primary_key=True)
+    poza = db.Column(db.String(4096))
+    categorie = db.Column(db.String(4096))
     nume = db.Column(db.String(4096))
+    gramaj = db.Column(db.String(4096))
     pret = db.Column(db.String(4096))
     redus = db.Column(db.String(4096))
-#__________
+
+
+
+@app.route("/shop", methods=["GET", "POST"])
+def shop():
+    return render_template("shop.html", produse=Produs.query.all())
+
+
+app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
+
+
+#LOGIN
 
 
 @app.route('/login', methods=['GET','POST'])
@@ -86,7 +88,7 @@ def protected():
             if request.files:
                 image = request.files["image"]
                 image.save(os.path.join(app.root_path, app.config["IMAGE_UPLOADS"], image.filename))
-                produs = Produs(nume=request.form["nume"], pret=request.form["pret"], redus=request.form["redus"])
+                produs = Produs(poza=image.filename, categorie=request.form["categorie"], nume=request.form["nume"], gramaj=request.form["gramaj"], pret=request.form["pret"], redus=request.form["redus"])
                 db.session.add(produs)
                 db.session.commit()
                 return redirect(url_for('protected'))

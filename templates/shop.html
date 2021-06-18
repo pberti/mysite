@@ -46,14 +46,16 @@
 
         <!-- Poza panorama-->
         <img class="card-img-top" src="/static/poze/panorama.jpg" alt="..." />
-
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
 
-                    <!-- produs 1 -->
+{% for produs in produse%}
+
+
+                    <!-- produse -->
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
@@ -64,7 +66,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Pandativ</h5>
+                                    <h5 class="fw-bolder">{{produs.nume}}</h5>
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                         <div class="bi-star-fill"></div>
@@ -74,8 +76,8 @@
                                         <div class="bi-star-fill"></div>
                                     </div>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">£2</span>
-                                    £1
+                                    <span class="text-muted text-decoration-line-through">£{{ produs.pret }}</span>
+                                    £{{ produs.redus }}
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -84,8 +86,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end produs 1 -->
+                    <!-- end produse -->
 
+
+{% endfor %}
 
 
                 </div>
