@@ -106,3 +106,4 @@ def before_request():
 def dropsession():
     session.pop('user', None)
     return render_template('login.html')
+
