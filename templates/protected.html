@@ -1,36 +1,62 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+{% extends 'shop-base.html' %}
 
-      <h1> Bine ai venit {{user}}!</h1>
-      <button onclick="window.location = 'http://albert73.pythonanywhere.com/dropsession'" type="submit" class="btn btn-info">Iesire</button>
-      <hr>
+{% block content %}
 
-      <form action="/protected" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <p></p>
+              <h1> Bine ai venit {{user}}!</h1>
+                <button onclick="window.location = 'http://albert73.pythonanywhere.com/dropsession'" type="submit" class="btn btn-info btn-sm">Iesire</button>
+              <hr>
 
-        <div class="form-group">
-          <label>Adaugare produs</label>
-          <p></p>
-          <div class="custom-file">
+              <form action="/protected" method="POST" enctype="multipart/form-data">
 
-            <input type="file" class="custom-file-input" name="image" id="image"><br>
-            <select class="form-control" name ="categorie">
-                <option>Inele</option>
-                <option>Bratari</option>
-            </select><br>
-            <input type="text" class="form-control" placeholder="nume" id="nume" name="nume"><br>
-            <input type="text" class="form-control" placeholder="gramaj" id="gramaj" name="gramaj"><br>
-            <input type="text" class="form-control" placeholder="pret" id="pret" name="pret"><br>
-            <input type="text" class="form-control" placeholder="redus" id="redus" name="redus"><br>
+                <div class="form-group">
+                  <label>Adaugare produs</label>
+                    <p></p>
+                  <div class="custom-file">
+
+                    <input type="file" class="custom-file-input" name="image" id="image">
+                        <p></p>
+                    <select class="form-control" name ="categorie">
+                        <option>Inele</option>
+                        <option>Bratari</option>
+                    </select><p></p>
+
+                    <input type="text" class="form-control" placeholder="nume" id="nume" name="nume"><p></p>
+                    <input type="text" class="form-control" placeholder="gramaj" id="gramaj" name="gramaj"><p></p>
+                     <input type="text" class="form-control" placeholder="pret" id="pret" name="pret"><p></p>
+                    <input type="text" class="form-control" placeholder="redus" id="redus" name="redus"></br>
 
 
-            <button type="submit" class="btn btn-primary">Trimite</button>
+                    <button type="submit" class="btn btn-success">Adaugā</button>
+                    <p></p>
+                    <hr>
 
-          </div>
-        </div>
 
-      </form>
 
-    </div>
-  </div>
+
+ <p></p>
+
+<div class="btn-group btn-group-justified">
+    <a href="#" class="btn btn-primary">Toate</a>
+    <a href="#" class="btn btn-primary">Inele</a>
+    <a href="#" class="btn btn-primary">Bratari</a>
 </div>
+
+<p></p>
+
+
+
+
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

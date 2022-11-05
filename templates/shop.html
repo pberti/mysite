@@ -1,6 +1,7 @@
-{% extends shop-base.html %}
+{% extends 'shop-base.html' %}
 
-{% block body %}
+{% block content %}
+
         <!-- Poza panorama-->
         <img class="card-img-top" src="/static/poze/panorama.jpg" alt="..." />
         <!-- Section-->
@@ -9,7 +10,7 @@
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
 
-{% for produs in produse%}
+        {% for produs in produse%}
 
 
                     <!-- produse -->
@@ -47,10 +48,9 @@
                         </div>
                     </div>
                     <!-- end produse -->
-{% endfor %}
+        {% endfor %}
 
                 </div>
             </div>
         </section>
-        
 {% endblock %}

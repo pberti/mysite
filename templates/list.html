@@ -1,39 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Visitor's list</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-</br>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <title>Visitors</title>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                    <a class="navbar-brand" href="http://albert73.pythonanywhere.com">Add Another Visitor</a>
+                    <a class="navbar-brand" href="http://albert73.pythonanywhere.com/home">Check my Website</a>
+            </div>
+        </nav>
+
 <div class="container">
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>ID</th>
+        <th>Time</th>
         <th>Name</th>
-        <th>Host</th>
         <th>Company</th>
+        <th>Email</th>
+        <th>Data Analyst Required</th>
       </tr>
     </thead>
     <tbody>
       {% for guest in guests %}
       <tr>
         <td>{{ guest.id }}</td>
+        <td>{{ guest.time }}</td>
         <td>{{ guest.name }}</td>
-        <td>{{ guest.host }}</td>
         <td>{{ guest.company }}</td>
+        <td>{{ guest.email }}</td>
+        <td>{{ guest.question }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
 
-</body>
-</html>
 
+
+    </body>
+</html>

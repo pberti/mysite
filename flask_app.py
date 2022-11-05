@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="Albert73",
-    password="812288qwe",
+    password="ad812288",
     hostname="Albert73.mysql.pythonanywhere-services.com",
     databasename="Albert73$visitors",
 )
@@ -20,16 +21,37 @@ db = SQLAlchemy(app)
 class Visit(db.Model):
     __tablename__ = "guests"
     id = db.Column(db.Integer, primary_key=True)
+    time = db.Column(db.DateTime(), default=datetime.utcnow)
     name = db.Column(db.String(4096))
-    host = db.Column(db.String(4096))
     company = db.Column(db.String(4096))
+    email = db.Column(db.String(4096))
+    question = db.Column(db.String(4096))
 
+
+
+
+#CV
+@app.route("/home", methods=["GET", "POST"])
+def intro():
+    return render_template('home.html')
+
+@app.route("/portfolio", methods=["GET", "POST"])
+def portfolio():
+    return render_template('portfolio.html')
+
+@app.route("/courses", methods=["GET", "POST"])
+def courses():
+    return render_template('courses.html')
+
+
+
+#VISITORS
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
         return render_template("index.html", guests=Visit.query.all())
-    visit = Visit(name=request.form["contents"], host=request.form["host"],  company=request.form["company"])
+    visit = Visit(name=request.form["contents"], company=request.form["company"], email=request.form["email"], question=request.form["question"])
     db.session.add(visit)
     db.session.commit()
     return redirect(url_for('index'))
@@ -68,9 +90,6 @@ def shop():
 app.config["IMAGE_UPLOADS"] = "/home/Albert73/mysite/static/poze"
 
 
-#LOGIN
-
-
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method ==  'POST':
@@ -91,7 +110,7 @@ def protected():
                 produs = Produs(poza=image.filename, categorie=request.form["categorie"], nume=request.form["nume"], gramaj=request.form["gramaj"], pret=request.form["pret"], redus=request.form["redus"])
                 db.session.add(produs)
                 db.session.commit()
-                return redirect(url_for('protected'))
+            return redirect(url_for('protected'))
         return render_template('protected.html', user=session['user'])
     return redirect(url_for('login'))
 
@@ -106,4 +125,3 @@ def before_request():
 def dropsession():
     session.pop('user', None)
     return render_template('login.html')
-
