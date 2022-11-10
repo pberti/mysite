@@ -15,4 +15,4 @@ def portfolio():
 def courses():
     return render_template('courses.html')
 
-#nu se poatye
+#na hai ca merge
