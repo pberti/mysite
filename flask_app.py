@@ -15,5 +15,4 @@ def portfolio():
 def courses():
     return render_template('courses.html')
 
-
-    baaa
+#nu se poatye
