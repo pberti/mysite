@@ -1,3 +1,18 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+
+
+
+
+'''
+
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -15,4 +30,4 @@ def portfolio():
 def courses():
     return render_template('courses.html')
 
-#na hai ca merge
+'''
