@@ -15,5 +15,3 @@ def portfolio():
 def courses():
     return render_template('courses.html')
 
-
-#comment
