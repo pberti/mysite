@@ -1,17 +1,3 @@
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    return "<p>Hello baaa mumu. x1</p>"
-
-
-#codu lui sefu
-
-'''
-
-
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -28,6 +14,3 @@ def portfolio():
 @app.route("/courses", methods=["GET", "POST"])
 def courses():
     return render_template('courses.html')
-
-'''
-#daca asa zici tu 
