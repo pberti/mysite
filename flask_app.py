@@ -27,3 +27,4 @@ def courses():
     return render_template('courses.html')
 
 '''
+#insist pe astea!
