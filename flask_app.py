@@ -27,3 +27,5 @@ def courses():
     return render_template('courses.html')
 
 '''
+#ceva modificari in  new branch
+#tot mai multe modificari
