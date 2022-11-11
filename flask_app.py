@@ -26,4 +26,4 @@ def courses():
     return render_template('courses.html')
 
 '''
-#ceva modificari
+#ceva modificari in  new branch
