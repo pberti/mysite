@@ -6,8 +6,6 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello baaa mumu. x1</p>"
 
-
-#ceva modificari in main
 '''
 
 
