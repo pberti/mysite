@@ -5,6 +5,9 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     return "<p>Hello baaa mumu. x1</p>"
+
+
+#ceva modificari in main
 '''
 
 
@@ -26,4 +29,3 @@ def courses():
     return render_template('courses.html')
 
 '''
-#ceva modificari
